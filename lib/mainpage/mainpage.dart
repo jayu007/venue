@@ -8,7 +8,7 @@ import 'package:venue_user/background.dart';
 import 'package:venue_user/consta.dart';
 import 'package:venue_user/mainpage/consta.dart';
 import 'package:venue_user/mainpage/detail_page.dart';
-import 'package:venue_user/model/product.dart';
+import 'package:venue_user/model/properties.dart';
 
 class home extends StatefulWidget {
   const home({Key? key}) : super(key: key);
@@ -203,198 +203,220 @@ class _homeState extends State<home> {
                               width: 308.42.w,
                               height: 545.h,
                               child: ListView.builder(
-                                itemCount: 5,
-                                itemBuilder: (context, index) {
-                                  return Padding(
-                                    padding: EdgeInsets.only(bottom: 26.0.h),
-                                    child: InkWell(
-                                      onTap: () {
-                                        Navigator.pushAndRemoveUntil(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                detailpage(index: index),
+                                itemCount: properties.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return properties.length == null
+                                      ? Center(
+                                          child: CircularProgressIndicator())
+                                      : Padding(
+                                          padding:
+                                              EdgeInsets.only(bottom: 26.0.h),
+                                          child: InkWell(
+                                            onTap: () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      detailpage(
+                                                          index:
+                                                              properties[index]
+                                                                  .id),
+                                                ),
+                                              );
+                                            },
+                                            child: Hero(
+                                              tag: index,
+                                              child: Stack(
+                                                children: [
+                                                  Card(
+                                                    elevation: 5.0,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20.0),
+                                                    ),
+                                                    child: Container(
+                                                      height: 305.h,
+                                                      width: 307.56.w,
+                                                      decoration: BoxDecoration(
+                                                        color: Colors.green,
+                                                        image: DecorationImage(
+                                                            image: AssetImage(
+                                                              properties[index]
+                                                                  .image,
+                                                            ),
+                                                            fit: BoxFit
+                                                                .fitHeight),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(20.0),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Positioned(
+                                                    bottom: 0,
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(20.0),
+                                                        color: Colors.white,
+                                                      ),
+                                                      height: 80.0.h,
+                                                      width: 308.42.w,
+                                                      child: Padding(
+                                                        padding: EdgeInsets
+                                                            .symmetric(
+                                                          horizontal: 20.0.w,
+                                                        ),
+                                                        child: Column(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Text(
+                                                              properties[index]
+                                                                  .name,
+                                                              style: TextStyle(
+                                                                fontSize:
+                                                                    18.0.sp,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                color: Color(
+                                                                    0xFF0D2B4C),
+                                                              ),
+                                                            ),
+                                                            SizedBox(
+                                                              height: 8.0.h,
+                                                            ),
+                                                            Row(
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                ImageIcon(
+                                                                  AssetImage(
+                                                                    'assets/mainpage/image/wall.png',
+                                                                  ),
+                                                                  color: Color(
+                                                                      0xFF0D2B4C),
+                                                                  size: 18.sp,
+                                                                ),
+                                                                SizedBox(
+                                                                  width: 10.0.w,
+                                                                ),
+                                                                Text(
+                                                                  properties[
+                                                                          index]
+                                                                      .deposite
+                                                                      .toString(),
+                                                                  style:
+                                                                      TextStyle(
+                                                                    fontSize:
+                                                                        11.0.sp,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    color: Color(
+                                                                            0xFF0D2B4C)
+                                                                        .withOpacity(
+                                                                            0.5),
+                                                                  ),
+                                                                ),
+                                                                SizedBox(
+                                                                  width: 20.0.w,
+                                                                ),
+                                                                ImageIcon(
+                                                                  AssetImage(
+                                                                    'assets/mainpage/image/rupp.png',
+                                                                  ),
+                                                                  color: Color(
+                                                                      0xFF0D2B4C),
+                                                                  size: 18.sp,
+                                                                ),
+                                                                SizedBox(
+                                                                  width: 5.0.w,
+                                                                ),
+                                                                Text(
+                                                                  properties[
+                                                                          index]
+                                                                      .rent
+                                                                      .toString(),
+                                                                  style:
+                                                                      TextStyle(
+                                                                    fontSize:
+                                                                        11.0.sp,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    color: Color(
+                                                                            0xFF0D2B4C)
+                                                                        .withOpacity(
+                                                                            0.5),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Positioned(
+                                                    top: 25.0.h,
+                                                    left: 20.85.w,
+                                                    child: Container(
+                                                      height: 22.h,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(50.0),
+                                                        color: Colors.white
+                                                            .withOpacity(0.8),
+                                                      ),
+                                                      child: Padding(
+                                                        padding: EdgeInsets
+                                                            .symmetric(
+                                                                horizontal:
+                                                                    8.0.w),
+                                                        child: Row(
+                                                          children: [
+                                                            ImageIcon(
+                                                              AssetImage(
+                                                                'assets/mainpage/map.png',
+                                                              ),
+                                                              size: 12.0.sp,
+                                                            ),
+                                                            SizedBox(
+                                                              width: 5.0.w,
+                                                            ),
+                                                            Text(
+                                                              properties[index]
+                                                                  .address,
+                                                              style: TextStyle(
+                                                                color: Color(
+                                                                    0xFF0D2B4C),
+                                                                fontSize: 10.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
                                           ),
-                                          (route) => true,
                                         );
-                                      },
-                                      child: Hero(
-                                        tag: index,
-                                        child: Stack(
-                                          children: [
-                                            Card(
-                                              elevation: 0.0,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(20.0),
-                                              ),
-                                              child: Container(
-                                                height: 305.h,
-                                                width: 307.56.w,
-                                                decoration: BoxDecoration(
-                                                  color: Colors.green,
-                                                  image: DecorationImage(
-                                                      image: AssetImage(
-                                                        product_list[index]
-                                                            .image[0],
-                                                      ),
-                                                      fit: BoxFit.fitHeight),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          20.0),
-                                                ),
-                                              ),
-                                            ),
-                                            Positioned(
-                                              bottom: 0,
-                                              child: Container(
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          20.0),
-                                                  color: Colors.white,
-                                                ),
-                                                height: 80.0.h,
-                                                width: 308.42.w,
-                                                child: Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                    horizontal: 20.0.w,
-                                                  ),
-                                                  child: Column(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Text(
-                                                        product_list[index]
-                                                            .name,
-                                                        style: TextStyle(
-                                                          fontSize: 18.0.sp,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          color:
-                                                              Color(0xFF0D2B4C),
-                                                        ),
-                                                      ),
-                                                      SizedBox(
-                                                        height: 8.0.h,
-                                                      ),
-                                                      Row(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          ImageIcon(
-                                                            AssetImage(
-                                                              'assets/mainpage/image/wall.png',
-                                                            ),
-                                                            color: Color(
-                                                                0xFF0D2B4C),
-                                                            size: 18.sp,
-                                                          ),
-                                                          SizedBox(
-                                                            width: 10.0.w,
-                                                          ),
-                                                          Text(
-                                                            product_list[index]
-                                                                .deposite
-                                                                .toString(),
-                                                            style: TextStyle(
-                                                              fontSize: 11.0.sp,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                              color: Color(
-                                                                      0xFF0D2B4C)
-                                                                  .withOpacity(
-                                                                      0.5),
-                                                            ),
-                                                          ),
-                                                          SizedBox(
-                                                            width: 20.0.w,
-                                                          ),
-                                                          ImageIcon(
-                                                            AssetImage(
-                                                              'assets/mainpage/image/rupp.png',
-                                                            ),
-                                                            color: Color(
-                                                                0xFF0D2B4C),
-                                                            size: 18.sp,
-                                                          ),
-                                                          SizedBox(
-                                                            width: 5.0.w,
-                                                          ),
-                                                          Text(
-                                                            product_list[index]
-                                                                .rent
-                                                                .toString(),
-                                                            style: TextStyle(
-                                                              fontSize: 11.0.sp,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                              color: Color(
-                                                                      0xFF0D2B4C)
-                                                                  .withOpacity(
-                                                                      0.5),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            Positioned(
-                                              top: 25.0.h,
-                                              left: 20.85.w,
-                                              child: Container(
-                                                height: 22.h,
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          50.0),
-                                                  color: Colors.white
-                                                      .withOpacity(0.8),
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 8.0.w),
-                                                  child: Row(
-                                                    children: [
-                                                      ImageIcon(
-                                                        AssetImage(
-                                                          'assets/mainpage/map.png',
-                                                        ),
-                                                        size: 12.0.sp,
-                                                      ),
-                                                      SizedBox(
-                                                        width: 5.0.w,
-                                                      ),
-                                                      Text(
-                                                        product_list[index].add,
-                                                        style: TextStyle(
-                                                          color:
-                                                              Color(0xFF0D2B4C),
-                                                          fontSize: 10.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  );
                                 },
                               ),
                             ),

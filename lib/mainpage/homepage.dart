@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venue_user/mainpage/mainpage.dart';
+import 'package:venue_user/orders/ordersmainpage.dart';
+import 'package:venue_user/person/personmainpage.dart';
 
 class homepagem extends StatefulWidget {
   const homepagem({Key? key}) : super(key: key);
@@ -18,22 +20,9 @@ class _homepagemState extends State<homepagem> {
 
   var pages = [
     home(),
-    home(),
-    home(),
+    ordermainpage(),
+    persommainpage(),
   ];
-  late ScrollController controller;
-
-  @override
-  void initState() {
-    super.initState();
-    controller = ScrollController();
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {

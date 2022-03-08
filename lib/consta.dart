@@ -9,7 +9,17 @@ var bacround = const BoxDecoration(
     image: AssetImage("assets/splashimage/loginscreen.jpg"),
   ),
 );
-
+var sbox = TextStyle(
+  color: Colors.white,
+  letterSpacing: 1.0,
+  fontSize: 16.0.sp,
+);
+var tremsstyle = TextStyle(
+  color: Color(0xFF64748B),
+  fontSize: 13.0.sp,
+  letterSpacing: 1.5,
+  fontWeight: FontWeight.bold,
+);
 Widget btn(txt) => Container(
       decoration: BoxDecoration(
         boxShadow: [

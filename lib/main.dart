@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:venue_user/mainpage/homepage.dart';
+import 'package:venue_user/splash/splasscreen.dart';
 
 void main() {
   runApp(vanueforevent());
@@ -16,7 +16,7 @@ class vanueforevent extends StatelessWidget {
         accentColor: Color(0xFFF4F4F4),
       ),
       debugShowCheckedModeBanner: false,
-      home: homepagem(),
+      home: splashscreen(),
     );
   }
 }

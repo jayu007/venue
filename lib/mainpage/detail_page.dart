@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venue_user/background.dart';
 import 'package:venue_user/mainpage/consta.dart';
 import 'package:venue_user/model/product.dart';
+import 'package:venue_user/model/properties.dart';
 import 'package:venue_user/payment/payment_page.dart';
 
 class detailpage extends StatefulWidget {
@@ -98,10 +99,10 @@ class _detailpageState extends State<detailpage> {
                                       image: DecorationImage(
                                         fit: BoxFit.fitHeight,
                                         image: AssetImage(
-                                            product_list[0].image[index]),
+                                          product_list[0].image[index],
+                                        ),
                                       ),
                                       borderRadius: BorderRadius.circular(20.0),
-                                      color: Colors.red,
                                     ),
                                   ),
                                 );
@@ -118,14 +119,14 @@ class _detailpageState extends State<detailpage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                product_list[widget.index].name,
+                                properties[widget.index].name,
                                 style: TextStyle(
                                     color: Color(0xFF0D2B4C),
                                     fontSize: 18.0.sp,
                                     fontWeight: FontWeight.bold),
                               ),
                               Text(
-                                'Venue Type: ${product_list[widget.index].type}',
+                                'Venue Type: ${properties[widget.index].city}',
                                 style: TextStyle(
                                   color: Color(0xFF0D2B4C),
                                   fontSize: 14.0.sp,
@@ -136,14 +137,14 @@ class _detailpageState extends State<detailpage> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Deposite: ${product_list[widget.index].deposite}',
+                                    'Deposite: ${properties[widget.index].deposite}',
                                     style: TextStyle(
                                       color: Color(0xFF0D2B4C),
                                       fontSize: 14.0.sp,
                                     ),
                                   ),
                                   Text(
-                                    'Rent: ${product_list[widget.index].rent}',
+                                    'Rent: ${properties[widget.index].rent}',
                                     style: TextStyle(
                                       color: Color(0xFF0D2B4C),
                                       fontSize: 14.0.sp,
@@ -160,24 +161,26 @@ class _detailpageState extends State<detailpage> {
                         SizedBox(
                           height: 293.0.h,
                           width: 326.0.w,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Description:',
-                                style: TextStyle(
-                                    color: Color(0xFF0D2B4C),
-                                    fontSize: 18.0.sp,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                product_list[widget.index].des,
-                                style: TextStyle(
-                                  color: Color(0xFF0D2B4C),
-                                  fontSize: 12.0.sp,
+                          child: SingleChildScrollView(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Description:',
+                                  style: TextStyle(
+                                      color: Color(0xFF0D2B4C),
+                                      fontSize: 18.0.sp,
+                                      fontWeight: FontWeight.bold),
                                 ),
-                              ),
-                            ],
+                                Text(
+                                  properties[widget.index].tellus,
+                                  style: TextStyle(
+                                    color: Color(0xFF0D2B4C),
+                                    fontSize: 12.0.sp,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         SizedBox(
@@ -195,7 +198,7 @@ class _detailpageState extends State<detailpage> {
                                 width: 5.0.w,
                               ),
                               Text(
-                                product_list[widget.index].add,
+                                properties[widget.index].address,
                                 style: TextStyle(
                                   color: Color(0xFF0D2B4C),
                                   fontSize: 14.0.sp,
@@ -223,7 +226,7 @@ class _detailpageState extends State<detailpage> {
                                 width: 5.0.w,
                               ),
                               Text(
-                                product_list[widget.index].state,
+                                properties[widget.index].state,
                                 style: TextStyle(
                                   color: Color(0xFF0D2B4C),
                                   fontSize: 14.0.sp,

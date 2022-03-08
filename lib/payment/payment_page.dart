@@ -3,9 +3,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 import 'package:venue_user/background.dart';
 import 'package:venue_user/consta.dart';
 import 'package:venue_user/mainpage/consta.dart';
+import 'package:venue_user/model/order.dart';
 import 'package:venue_user/payment/success_page.dart';
 
 class payment_page extends StatefulWidget {
@@ -183,12 +185,63 @@ class _payment_pageState extends State<payment_page> {
                             ),
                             borderRadius: BorderRadius.circular(20.0),
                           ),
-                          child: Stack(
-                            children: [
-                              Positioned(
-                                bottom: 11.0.h,
-                                right: 11.0.w,
-                                child: InkWell(
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 14.0.w),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Start Date/Time: ',
+                                      style: sbox,
+                                    ),
+                                    Text(
+                                      DateFormat('dd-MM-yyyy hh:mm a')
+                                          .format(upcomingevent[0].startdate),
+                                      style: sbox,
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'End Date/Time: ',
+                                      style: sbox,
+                                    ),
+                                    Text(
+                                      DateFormat('dd-MM-yyyy hh:mm a')
+                                          .format(upcomingevent[0].enddate),
+                                      style: sbox,
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Total Rent: ',
+                                      style: sbox,
+                                    ),
+                                    Text(
+                                      '1,00,000',
+                                      style: sbox,
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Total Deposite: ',
+                                      style: sbox,
+                                    ),
+                                    Text(
+                                      '40,000',
+                                      style: sbox,
+                                    ),
+                                  ],
+                                ),
+                                InkWell(
                                   onTap: () {
                                     Navigator.pushAndRemoveUntil(
                                         context,
@@ -215,8 +268,8 @@ class _payment_pageState extends State<payment_page> {
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ],

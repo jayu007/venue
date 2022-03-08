@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venue_user/background.dart';
 import 'package:venue_user/consta.dart';
 import 'package:venue_user/mainpage/consta.dart';
+import 'package:venue_user/mainpage/homepage.dart';
 
 class success_page extends StatefulWidget {
   const success_page({Key? key}) : super(key: key);
@@ -57,26 +58,35 @@ class _success_pageState extends State<success_page> {
                       SizedBox(
                         height: 250.0.h,
                       ),
-                      Container(
-                        width: 157.0.w,
-                        height: 57.0.h,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Color(0xFF53E88B),
-                              Color(0xFF15BE77),
-                            ],
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => homepagem()),
+                              (route) => false);
+                        },
+                        child: Container(
+                          width: 157.0.w,
+                          height: 57.0.h,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                Color(0xFF53E88B),
+                                Color(0xFF15BE77),
+                              ],
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                            ),
+                            borderRadius: BorderRadius.circular(20.0),
                           ),
-                          borderRadius: BorderRadius.circular(20.0),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Go To Bookings',
-                            style: tstyle.copyWith(
-                              color: Colors.white,
-                              fontSize: 15.0.sp,
+                          child: Center(
+                            child: Text(
+                              'Go To Bookings',
+                              style: tstyle.copyWith(
+                                color: Colors.white,
+                                fontSize: 15.0.sp,
+                              ),
                             ),
                           ),
                         ),

@@ -22,7 +22,20 @@ class persommainpage extends StatefulWidget {
 class _persommainpageState extends State<persommainpage> {
   final _formkey = GlobalKey<FormState>();
 
-  var user_details;
+  List<UserDetail> userlist = [
+    UserDetail(
+        ownerId: 0,
+        name: 'Jay',
+        email: 'jaymalaviya037@gmail.com',
+        mobileNo: 7894561230,
+        addressLine: 'Punagam',
+        city: 'Surat',
+        state: 'Gujrat',
+        pincode: 789456,
+        password: 'aa',
+        beneficiallyName: 'jay Malaviya',
+        upiId: '1234567890@ybl'),
+  ];
   @override
   initState() {
     getdata();
@@ -90,7 +103,7 @@ class _persommainpageState extends State<persommainpage> {
     return ScreenUtilInit(
       designSize: Size(372, 738),
       builder: () {
-        UserDetail user = user_details[0];
+        UserDetail user = userlist[0];
         return FutureBuilder(builder: (context, snapshot) {
           return Scaffold(
             resizeToAvoidBottomInset: false,
@@ -257,188 +270,8 @@ class _persommainpageState extends State<persommainpage> {
                                   ),
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 7.0.w,
-                                  vertical: 6.5.h,
-                                ),
-                                child: Card(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  child: SizedBox(
-                                    height: 57.h,
-                                    width: 325.w,
-                                    child: Center(
-                                      child: TextFormField(
-                                        controller: _add
-                                          ..text = user.addressLine,
-                                        decoration: decoration(
-                                            "assets/icon/add8.png",
-                                            "Address.."),
-                                        validator: (val) {
-                                          if (val!.isEmpty) {
-                                            return "";
-                                          }
-                                        },
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 7.0.w,
-                                  vertical: 6.5.h,
-                                ),
-                                child: Card(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  child: SizedBox(
-                                    height: 57.h,
-                                    width: 325.w,
-                                    child: Center(
-                                      child: TextFormField(
-                                        controller: _city..text = user.city,
-                                        decoration: decoration(
-                                            "assets/icon/add8.png", "City.."),
-                                        validator: (val) {
-                                          if (val!.isEmpty) {
-                                            return "";
-                                          }
-                                        },
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 7.0.w,
-                                  vertical: 6.5.h,
-                                ),
-                                child: Card(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  child: SizedBox(
-                                    height: 57.h,
-                                    width: 325.w,
-                                    child: Center(
-                                      child: TextFormField(
-                                        controller: _state..text = user.state,
-                                        decoration: decoration(
-                                            "assets/icon/add9.png", "State.."),
-                                        validator: (val) {
-                                          if (val!.isEmpty) {
-                                            return "";
-                                          }
-                                        },
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 7.0.w,
-                                  vertical: 6.5.h,
-                                ),
-                                child: Card(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  child: SizedBox(
-                                    height: 57.h,
-                                    width: 325.w,
-                                    child: Center(
-                                      child: TextFormField(
-                                        controller: _pincode
-                                          ..text = user.pincode.toString(),
-                                        decoration: decoration(
-                                            "assets/icon/person/Lock.png",
-                                            "Pincode.."),
-                                        validator: (val) {
-                                          if (val!.isEmpty) {
-                                            return "";
-                                          }
-                                        },
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 7.0.w,
-                                  vertical: 6.5.h,
-                                ),
-                                child: SizedBox(
-                                  height: 30.0.h,
-                                  width: 318.0.w,
-                                  child: appbarorder(
-                                    text: "Bank Detail",
-                                    img: "assets/icon/person/bank.png",
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 7.0.w,
-                                  vertical: 6.5.h,
-                                ),
-                                child: Card(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  child: SizedBox(
-                                    height: 57.h,
-                                    width: 325.w,
-                                    child: Center(
-                                      child: TextFormField(
-                                        controller: _bname
-                                          ..text = user.beneficiallyName,
-                                        decoration: decoration(
-                                            "assets/icon/Profile.png",
-                                            "Name As Per Your Bank.."),
-                                        validator: (val) {
-                                          if (val!.isEmpty) {
-                                            return "";
-                                          }
-                                        },
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 7.0.w,
-                                  vertical: 6.5.h,
-                                ),
-                                child: Card(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  child: SizedBox(
-                                    height: 57.h,
-                                    width: 325.w,
-                                    child: Center(
-                                      child: TextFormField(
-                                        controller: _upi..text = user.upiId,
-                                        decoration: decoration(
-                                            "assets/icon/person/Lock.png",
-                                            "Upi.."),
-                                        validator: (val) {
-                                          if (val!.isEmpty) {
-                                            return "";
-                                          } else {}
-                                        },
-                                      ),
-                                    ),
-                                  ),
-                                ),
+                              SizedBox(
+                                height: 80.0.h,
                               ),
                               InkWell(
                                 onTap: () {},
@@ -484,6 +317,39 @@ class _persommainpageState extends State<persommainpage> {
                                     ),
                                   ),
                                 ),
+                              ),
+                              SizedBox(
+                                height: 100.0.h,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    'Privacy Policy',
+                                    style: tremsstyle,
+                                  ),
+                                  Text(
+                                    '>',
+                                    style: tremsstyle,
+                                  ),
+                                  Text(
+                                    'Terms',
+                                    style: tremsstyle,
+                                  ),
+                                  Text(
+                                    '>',
+                                    style: tremsstyle,
+                                  ),
+                                  Text(
+                                    'Rate US',
+                                    style: tremsstyle,
+                                  ),
+                                  Icon(
+                                    Icons.star_border_outlined,
+                                    color: Color(0xFF64748B),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
