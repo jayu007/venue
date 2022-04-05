@@ -13,7 +13,7 @@ class vanueforevent extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         fontFamily: 'Questrial',
-        accentColor: Color(0xFFF4F4F4),
+        // accentColor: Color(0xFFF4F4F4),
       ),
       debugShowCheckedModeBanner: false,
       home: splashscreen(),

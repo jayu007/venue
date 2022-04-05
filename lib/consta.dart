@@ -12,7 +12,7 @@ var bacround = const BoxDecoration(
 var sbox = TextStyle(
   color: Colors.white,
   letterSpacing: 1.0,
-  fontSize: 16.0.sp,
+  fontSize: 14.0.sp,
 );
 var tremsstyle = TextStyle(
   color: Color(0xFF64748B),
